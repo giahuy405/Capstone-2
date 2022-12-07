@@ -1,0 +1,25 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.product-item{
+    border: 1px solid gainsboro;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 25px;
+}
+.product-item img{
+    transition: .4s;
+}
+.product-item:hover img{
+    transform: translateY(-6px);
+}
+.product-filter{
+    position: sticky;
+    top: 50px;
+    left: 200px;
+}
+.product-detail{
+    padding: 10px;
+}
