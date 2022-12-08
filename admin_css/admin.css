@@ -5,3 +5,28 @@
     box-sizing: border-box;
     font-family: 'Sarabun', sans-serif;
 }
+
+body{
+    
+}
+
+.imgColumn{
+    width: 90px;
+    height: 90px;
+    display: inline-block;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+
+.imgColumn img{
+    width: 100%;
+    box-shadow: -10px 7px 11px -4px rgba(0,0,0,0.49);
+-webkit-box-shadow: -10px 7px 11px -4px rgba(0,0,0,0.49);
+-moz-box-shadow: -10px 7px 11px -4px rgba(0,0,0,0.49);
+}
+
+.centerSpinner{
+    margin: auto;
+    width: 50%;
+    padding: 0 18rem;
+}
