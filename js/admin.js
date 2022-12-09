@@ -44,7 +44,6 @@ function mapProductList(data) {
     for (var i = 0; i < data.length; i++) {
         var oldProduct = data[i];
         var newProduct = new Product(
-            oldProduct.id,
             oldProduct.name,
             oldProduct.price,
             oldProduct.screen,
@@ -76,6 +75,8 @@ function fetchProductList() {
             document.querySelector('.centerSpinner').classList.add('d-none');
         });
 }
+
+
 
 
 window.onload = function () {
