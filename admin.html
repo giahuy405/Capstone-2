@@ -23,7 +23,7 @@
       rel="stylesheet"
       type="text/css"
     />
-    <link rel="stylesheet" href="./css/admin.css" />
+    <link rel="stylesheet" href="./admin_css/admin.css" />
   </head>
 
   <body>
@@ -112,7 +112,7 @@
     <!--////////////////////End of Navigation Bar ////////////////////-->
 
     <section class="productsBoard">
-      <div class="container">
+      <div class="container ">
         <!-- Header Board -->
         <div class="headerBoard mb-3">
           <div class="container">
@@ -138,7 +138,10 @@
               </div>
             </div>
             <div class="col-3">
-              <button class="btn btn-primary">Thêm sản phẩm</button>
+              <div class="container">
+                <a class="btn btn-primary" href="./adding_Page/adding.html">Thêm sản phẩm</a>
+              </div>
+             
             </div>
           </div>
           <!-- Board -->
@@ -149,17 +152,26 @@
                 <th>Tên sản phẩm</th>
                 <th>Giá</th>
                 <th>Màn hình</th>
-                <th width="12%">Camera Sau</th>
-                <th width="12%">Camera Trước</th>
-                <th width="20%">Mô tả</th>
+                <th width="">Camera Sau</th>
+                <th width="">Camera Trước</th>
+                <th width="">Mô tả</th>
                 <th>Loại</th>
                 <th><i class="fa-duotone fa-gears"></i></th>
               </tr>
             </thead>
             <tbody id="productTable">
+              
 
             </tbody>
+           
           </table>
+          <div class="centerSpinner">
+            <div class="spinner-border text-primary " role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+          
+
         </div>
       </div>
     </section>
@@ -177,8 +189,18 @@
     ></script>
     <!-- //////////////////////////// -->
 
-    <script src="../js/services/productService.js"></script>
-    <script src="../js/models/products.js"></script>
-    <script src="../js/admin.js"></script>
+    <!-- Axios -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"
+      integrity="sha512-zJYu9ICC+mWF3+dJ4QC34N9RA0OVS1XtPbnf6oXlvGrLGNB8egsEzu/5wgG90I61hOOKvcywoLzwNmPqGAdATA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!-- ////////// -->
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/models/products.js"></script>
+    <script src="./js/services/productService.js"></script>
+    <script src="./js/admin.js"></script>
   </body>
 </html>

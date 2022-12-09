@@ -1,5 +1,4 @@
-function Product (pId, pName, pPrice, pScreen, pBackCamera, pFrontCamera,  pImg, pDesc, pType){
-    this.id = pId;
+function Product ( pName, pPrice, pScreen, pBackCamera, pFrontCamera,  pImg, pDesc, pType){
     this.name = pName;
     this.price = pPrice;
     this.screen = pScreen;
