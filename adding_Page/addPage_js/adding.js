@@ -1,5 +1,6 @@
 
 function createProduct(){
+    var id;
     var name = document.getElementById("nameProduct").value;
     var price = document.getElementById("priceProduct").value;
     var screen = document.getElementById("screenProduct").value;
@@ -10,6 +11,7 @@ function createProduct(){
     var type = document.getElementById("typeProduct").value;
 
     var product = new Product(
+        id,
         name,
         price,
         screen,

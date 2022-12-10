@@ -139,9 +139,20 @@
             </div>
             <div class="col-3">
               <div class="container">
+                
                 <a class="btn btn-primary" href="./adding_Page/adding.html">Thêm sản phẩm</a>
               </div>
              
+            </div>
+
+            <div class="col-5">
+              <div class=" form-group">
+                <label for="">Label </label>
+                <select name="" id="khSV" class="form-control" on>
+                  <option>Chọn hãng sản phẩm</option>
+                </select>
+                <button class="btn btn-warning" onclick="  filterType()">Load</button>
+              </div>
             </div>
           </div>
           <!-- Board -->
@@ -175,6 +186,93 @@
         </div>
       </div>
     </section>
+
+    <!-- /////////////////Editing Modal//////////////// -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Chỉnh sửa</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="updatedProductForm" role="form">
+          <!-- Tên sản phẩm -->
+          <div class="mb-3">
+            <label class="form-label">Tên sản phẩm</label>
+            <input id="updNameProduct" type="text" class="form-control" id="inputGroup-sizing-default" >
+            <div class="form-text"><span class="error">*Nhập tên sản phẩm</span></div>
+          </div>    
+          <!--//////////  -->
+
+           <!-- Giá sản phẩm -->
+          <div class="mb-3">
+            <label class="form-label">Giá sản phẩm</label>
+            <input id="updPriceProduct" type="text" class="form-control" id="inputGroup-sizing-default" >
+            <div class="form-text"><span class="error">*Nhập tên sản phẩm</span></div>
+          </div>    
+          <!--//////////  -->
+
+           <!-- Màn hình sản phẩm -->
+           <div class="mb-3">
+            <label class="form-label">Màn hình sản phẩm</label>
+            <input id="updScreenProduct" type="text" class="form-control" id="inputGroup-sizing-default" >
+            <div class="form-text"><span class="error">*Nhập tên sản phẩm</span></div>
+          </div>    
+          <!--//////////  -->
+
+          <!-- Camera sau của sản phẩm -->
+          <div class="mb-3">
+            <label class="form-label">Camera sau của sản phẩm</label>
+            <input id="updBackCamera" type="text" class="form-control" id="inputGroup-sizing-default" >
+            <div class="form-text"><span class="error">*Nhập tên sản phẩm</span></div>
+          </div>    
+          <!--//////////  -->
+
+           <!-- Camera trước của sản phẩm -->
+           <div class="mb-3">
+            <label class="form-label">Camera trước của sản phẩm</label>
+            <input id="updFrontCamera" type="text" class="form-control" id="inputGroup-sizing-default" >
+            <div class="form-text"><span class="error">*Nhập tên sản phẩm</span></div>
+          </div>    
+          <!--//////////  -->
+
+           <!-- Hình ảnh của sản phẩm -->
+           <div class="mb-3">
+            <label class="form-label">Hình ảnh của sản phẩm</label>
+            <input id="updImgProduct" type="text" class="form-control" placeholder="Nhập đường dẫn trực tuyến: http://abc.com" id="inputGroup-sizing-default" >
+            <div class="form-text"><span class="error">*Nhập tên sản phẩm</span></div>
+          </div>    
+          <!--//////////  -->
+
+           <!-- Mô tả sản phẩm -->
+           <div class="mb-3">
+            <label class="form-label">Mô tả sản phẩm</label>
+            <input id="updDescProduct" type="text" class="form-control" placeholder="Mô tả nhiều nhất được 12 từ" id="inputGroup-sizing-default" >
+            <div class="form-text"><span class="error">*Nhập tên sản phẩm</span></div>
+          </div>    
+          <!--//////////  -->
+
+           <!-- Loại sản phẩm -->
+           <div class="mb-3">
+            <label class="form-label">Loại sản phẩm</label>
+            <input id="updTypeProduct" type="text" class="form-control"  id="inputGroup-sizing-default" >
+            <div class="form-text"><span class="error">*Nhập tên sản phẩm</span></div>
+          </div>    
+          <!--//////////  -->
+
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button id="confirmEdit" type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
     <!-- Bootstrap JavaScript Libraries -->
     <script
