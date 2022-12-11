@@ -41,6 +41,13 @@ ul.navbar-nav li a::after{
     transform: scale(0, 1);
     transition: transform 0.3s;
 }
+.product-item  img{
+    transition: .3s;
+}
+.product-item:hover img{
+    transform: translateY(-6px);
+}
+
 
 
 .navbar-brand img{
@@ -79,14 +86,14 @@ tr:hover {
     background-color: #04aa6d09 !important;
 }
 
-/* .cart-icon {
-    color: rgba(255, 255, 255, .5);
+.cart-icon {
+    color:#303481 !important;
     font-size: 20px;
-} */
+}
 
-/* .cart-icon:hover {
-    color: white;
-} */
+.cart-icon:hover {
+    color:#04cbc6 !important
+}
 
 .product-item p {
     line-height: 1.2;
@@ -334,8 +341,9 @@ tr:hover {
     /* khi màn hình nhỏ phần icon nhảy qua bên trái nút bar */
     .cart-icon {
         position: absolute;
-        top: 5px;
-        right: 60px;
+        top: 35px;
+        right: 65px;
+        font-size: 22px;
     }
 }
 
