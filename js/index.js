@@ -1,7 +1,7 @@
 var productList = [];
 var cart = getCartLocalStorage();
 
-document.getElementById('deleteAllCart').onclick = function () {
+function clearCart() {
     if (cart.length === 0) {
         document.querySelector('.modal-dialog').showModal();
         setTimeout(function () {
@@ -38,14 +38,30 @@ document.getElementById('deleteAllCart').onclick = function () {
         })
     }
 }
-document.getElementById('btnBuy').onclick = function () {
+function paidCart() {
     if (cart.length === 0) {
         document.querySelector('.modal-dialog').showModal();
         setTimeout(function () {
             document.querySelector('.modal-dialog').close();
         }, 1300)
     }
+    else {
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Thanh toán thành công',
+            showConfirmButton: false,
+            timer: 1500
+        })
+        cart = [];
+        document.getElementById('notifyNoCartItem').style.display = 'block';
+        document.getElementById('tableCart').style.display = 'none';
+        saveCartLocalStorage();
+        renderCart();
+    }
 }
+    
+
 function mapProductList(data) {
     var result = [];
     for (var i = 0; i < data.length; i++) {
@@ -74,14 +90,14 @@ function renderProductList(data) {
         useGrouping: true,
         minimumFractionDigits: 0
     });
-    
+
     for (var i = 0; i < data.length; i++) {
-        
+
         var price = data[i].price;
         var tempPrice;
-        if(!Boolean(Number(price))){
+        if (!Boolean(Number(price))) {
             tempPrice = price;
-        }else{
+        } else {
             tempPrice = dollarUS.format(Number(price));
         }
         html +=
@@ -112,11 +128,10 @@ function renderProductList(data) {
         </div>
         </div>`;
     }
-    
+
     document.getElementById("displayProductList").innerHTML = html;
 }
 function totalMoney() {
-
     var total = 0;
     for (var i = 0; i < cart.length; i++) {
         var price = +cart[i].product[0].price;
@@ -134,12 +149,12 @@ function renderCart() {
         minimumFractionDigits: 0
     });
     for (var i = 0; i < cart.length; i++) {
-       
+
         var price = cart[i].product[0].price;
         var tempPrice;
-        if(!Boolean(Number(price))){
+        if (!Boolean(Number(price))) {
             tempPrice = price;
-        }else{
+        } else {
             tempPrice = dollarUS.format(Number(price));
         }
         html +=
@@ -187,7 +202,7 @@ function removeProductFromCart(index) {
                     title: 'Đã xóa',
                     text: 'Đã xóa ra khỏi giỏ hàng.',
                     icon: 'success',
-                    timer:1200
+                    timer: 1200
                 }
             );
             var i = +index;

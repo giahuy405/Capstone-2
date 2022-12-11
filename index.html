@@ -100,8 +100,8 @@
         <section class="cart-bottom">
             <span>Tổng tiền : </span><h5 class="d-inline" id="totalMoney">0</h5>
             <div class="form-inline mt-3">
-                <button class="btn btn-primary" id="btnBuy"  >Mua</button>
-                <button id="deleteAllCart" class="btn btn-danger ml-2">Xóa hết giỏ hàng</button>
+                <button class="btn btn-primary"  onclick="paidCart()" >Thanh toán</button>
+                <button id="deleteAllCart" class="btn btn-danger ml-2" onclick="clearCart()">Xóa hết giỏ hàng</button>
             </div>
         </section>
     </section>
@@ -143,7 +143,7 @@
         <i class="fa-regular fa-circle-xmark  fa-2x text-danger"></i>
         <h6 class="text-danger mt-3  ">Bạn chưa thêm sản phẩm nào vào giỏ hàng</h6>
     </dialog>
-   
+    
     <!-- backToTop -->
     <a class="backToTop cd-top text-replace js-cd-top" href="#"><i class="fa-solid fa-arrow-up"></i></a>
 
