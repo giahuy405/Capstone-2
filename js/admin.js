@@ -7,8 +7,15 @@ function renderProducts(data) {
 
     var html = "";
     for (var i = 0; i < data.length; i++) {
-        var price = Number(data[i].price);
-        var productPrice = price.toLocaleString();
+        var price ;
+        var productPrice;
+        if(data[i].price !== "Đang cập nhật"){
+            price = Number(data[i].price);
+            productPrice = price.toLocaleString();
+        }else{
+          productPrice = data[i].price;
+        }
+        
         html += `
         <tr>
                 <td>
@@ -70,7 +77,7 @@ function mapProductList(data) {
 function fetchProductList() {
     productList = [];
     renderProducts();
-    var promise = productService.fetchProducrts();
+    var promise = productService.fetchProducts();
     promise
         .then(function (response) {
             
@@ -124,15 +131,24 @@ function deleteProduct(id) {
 
 // Get Product to update 
 function getUpdateProduct(id) {
+    document.getElementById('errorName').style.display="none";
+    document.getElementById('errorPrice').style.display="none";
+    document.getElementById('errorScreen').style.display="none";
+    document.getElementById('errorBCam').style.display="none";
+    document.getElementById('errorFCam').style.display="none";
+    document.getElementById('errorImg').style.display="none";
+    document.getElementById('errorDesc').style.display="none";
+    document.getElementById('errorType').style.display="none";
 
     productService
       .fetchProductDetail(id)
       .then(function (response) {
         var product = response.data;
   
+        document.getElementById("updIdProduct").value = product.id;
         document.getElementById("updNameProduct").value = product.name;
         document.getElementById("updPriceProduct").value = product.price;
-        document.getElementById("updScreenProduct").value = product.screen;
+        document.getElementById("updScreenProduct").value = (product.screen.replace("screen","")).trim();
         document.getElementById("updBackCamera").value = product.backCamera;
         document.getElementById("updFrontCamera").value = product.frontCamera;
         document.getElementById("updImgProduct").value = product.img;
@@ -147,12 +163,15 @@ function getUpdateProduct(id) {
       });
   }
 
-  function updateStudent() {
+  function updateProduct() {
     
-    var id;
+
+    if (!validationForm("updNameProduct", "updPriceProduct", "updScreenProduct",
+    "updBackCamera", "updFrontCamera", "updImgProduct", "updDescProduct", "updTypeProduct")) return;
+    var id = document.getElementById("updIdProduct").value;
     var name = document.getElementById("updNameProduct").value;
     var price = document.getElementById("updPriceProduct").value;
-    var screen = document.getElementById("updScreenProduct").value;
+    var screen = "screen" + document.getElementById("updScreenProduct").value;
     var backCamera = document.getElementById("updBackCamera").value;
     var frontCamera = document.getElementById("updFrontCamera").value;
     var img = document.getElementById("updImgProduct").value;
@@ -182,6 +201,7 @@ function getUpdateProduct(id) {
             showConfirmButton: false,
             timer: 1500
           })
+        document.getElementById('updatedProductForm').reset();
         fetchProductList();
         
       })
@@ -190,17 +210,49 @@ function getUpdateProduct(id) {
       });
   }
   
-  document.getElementById('confirmEdit').onclick = updateStudent;
+  document.getElementById('confirmEdit').onclick = updateProduct;
 
 ////////////////
 
+
+// Tìm kiếm sản phẩm theo tên 
+function searchProduct(e) {
+  var keyword = e.target.value.toLowerCase().trim();
+  var result = [];
+  for (var i = 0; i < productList.length; i++) {
+    var productName = productList[i].name.toLowerCase();
+    if (productName.includes(keyword)) {
+      result.push(productList[i]);
+    }
+  }
+  renderProducts(result);
+}
+///////////////////////
+
 window.onload = function () {
     fetchProductList();
-
+    supFilterType();
    
 };
 
 
+function filterProductByOption() {
+  var result = [];
+  var type = document.getElementById('typeOption').value;
+  if(type === "0"){
+    renderProducts(productList);
+    return;
+  } 
+  for (var i = 0; i < productList.length; i++) {
+   var productType = productList[i].type;
+  
+   if (type.toLowerCase() === productType.toLowerCase()) {
+      result.push(productList[i]);
+    }
+  }
+
+  renderProducts(result);
+}
 
 
 
@@ -212,30 +264,3 @@ window.onload = function () {
 
 
 
-
-///Filter Type to set for option
-
-// var typeP = [];
-// function filterType() {
-//     var count = 0;
-//     var tempP;
-//     for (var i = 0; i < productList.length; i++) {
-//         var productType = productList[i].type;
-//         for(var j = 0; j < productList.length; j ++){
-//            if(productType === productList[j].type ){
-//                 count ++;
-//            }else if(productType !== productList[j].type)
-//            {
-//             tempP =productType;
-//             typeP.push(tempP);
-//            }
-//         }
-        
-//     }
-//     var tempTypeP = new Set(typeP);
-//     var newArryType = [...tempTypeP];
-//     console.log(newArryType);
-//    console.log(tempTypeP);
-//    console.log(newArryType[1]);
-   
-// }
