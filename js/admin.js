@@ -231,7 +231,7 @@ function searchProduct(e) {
 
 window.onload = function () {
     fetchProductList();
-    supFilterType();
+    supFilterType('typeOption');
    
 };
 

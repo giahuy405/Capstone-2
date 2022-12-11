@@ -1,6 +1,6 @@
 var typeP = [];
 
-function supFilterType(){
+function supFilterType(idSelect){
     var tempArray = [];
     var tempP; 
     productService.fetchProducts()
@@ -22,12 +22,14 @@ function supFilterType(){
         var tempTypeP = new Set(tempArray);
          typeP = [...tempTypeP];
       
-         renderOption(typeP, 'typeOption');
+         renderOption(typeP, idSelect);
     })
     .catch(function (error) {
         console.log("Error", error);
     });
 }
+
+
 function renderOption(data, optionId){
 
  var html ='';

@@ -116,10 +116,10 @@ function renderProductList(data) {
               
             </a>
             <div class=" product__price  border-top d-flex align-items-center pt-2">
-                <h4>${tempPrice}</h4>
+                <h4 id='price${i}'>${tempPrice}</h4>
                 <div class="ml-auto" >
                     <div class="form-inline border rounded">
-                        <button class="btn btn-cart-plus btn-outline-primary " onclick="addToCart(${data[i].id})"  >
+                        <button id='btnCart${i}' class="btn btn-cart-plus btn-outline-primary " onclick="addToCart(${data[i].id})"  >
                             <i class="fa-solid fa-cart-plus"></i>
                         </button>
                     </div>
@@ -128,9 +128,23 @@ function renderProductList(data) {
         </div>
         </div>`;
     }
-
+    
     document.getElementById("displayProductList").innerHTML = html;
+
 }
+
+function disabledCart(){
+  for(var i = 0; i < productList.length; i++){
+    var vaulePrice = document.getElementById(`price${i}`).innerHTML;
+
+    if(vaulePrice === 'Đang cập nhật'){
+        document.getElementById(`btnCart${i}`).classList.add('d-none');
+    }
+  }
+}
+
+
+
 function totalMoney() {
     var total = 0;
     for (var i = 0; i < cart.length; i++) {
@@ -220,6 +234,7 @@ function fetchProductList(data) {
             console.log(res);
             productList = mapProductList(res.data)
             renderProductList(data);
+            disabledCart()
         })
         .catch(function (err) {
             console.log(err);
@@ -384,5 +399,6 @@ window.onclick = function (event) {
 }
 window.onload = function (event) {
     fetchProductList();
+    supFilterType('brandOption');
 }
 
