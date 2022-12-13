@@ -156,7 +156,15 @@ function validationForm(_name,_price,_screen,_backCamera,_frontCamera, _img,_des
     var prdTypeValid =
         requiredInput(type, { errorId: 'errorType', errorScript: '*Nhập loại sản phẩm' }) &&
         checkLengthInput(type, { errorId: 'errorType', min: 2, max: 16, errorScript: "*Loại sản phẩm phải từ 2-16 ký tự." });
-
+    if(!prdNameValid) document.getElementById('nameProduct').style.border="1px solid red";
+    else document.getElementById('nameProduct').style.border="1px solid grey";
+    if(!prdPriceValid) document.getElementById('priceProduct').style.border="1px solid red";
+    if(!prdScreenValid) document.getElementById('screenProduct').style.border="1px solid red";
+    if(!prdBCamValid) document.getElementById('backCamera').style.border="1px solid red";
+    if(!prdFCamValid) document.getElementById('frontCamera').style.border="1px solid red";
+    if(!prdImgValid) document.getElementById('imgProduct').style.border="1px solid red";
+    if(!prdDescValid) document.getElementById('descProduct').style.border="1px solid red";
+    if(!prdTypeValid) document.getElementById('typeProduct').style.border="1px solid red";
     var isFormValid = prdNameValid && prdPriceValid && prdScreenValid
         && prdBCamValid && prdFCamValid && prdImgValid && prdDescValid && prdTypeValid;
 
