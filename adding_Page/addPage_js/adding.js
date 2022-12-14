@@ -14,7 +14,11 @@ productService.fetchProducts()
 
 function createProduct() {
   if (!validationForm("nameProduct", "priceProduct", "screenProduct",
-    "backCamera", "frontCamera", "imgProduct", "descProduct", "typeProduct")) return;
+    "backCamera", "frontCamera", "imgProduct", "descProduct", "typeProduct"))
+    {
+     
+      return
+    };
   var id;
   var name = document.getElementById("nameProduct").value.trim();
   var price = document.getElementById("priceProduct").value.trim();

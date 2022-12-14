@@ -167,11 +167,15 @@ function getUpdateProduct(id) {
     
 
     if (!validationForm("updNameProduct", "updPriceProduct", "updScreenProduct",
-    "updBackCamera", "updFrontCamera", "updImgProduct", "updDescProduct", "updTypeProduct")) return;
+    "updBackCamera", "updFrontCamera", "updImgProduct", "updDescProduct", "updTypeProduct"))
+    {
+
+      return
+    };
     var id = document.getElementById("updIdProduct").value;
     var name = document.getElementById("updNameProduct").value;
     var price = document.getElementById("updPriceProduct").value;
-    var screen = "screen" + document.getElementById("updScreenProduct").value;
+    var screen = "screen " + document.getElementById("updScreenProduct").value;
     var backCamera = document.getElementById("updBackCamera").value;
     var frontCamera = document.getElementById("updFrontCamera").value;
     var img = document.getElementById("updImgProduct").value;
