@@ -6,14 +6,14 @@
  *          VALIDATION FORM
  *  - Các dữ liệu bắt buộc phải được nhập
  *  
- *  - Name: phải từ 2 - 50 ký tự. DONE
- *  - Giá: không được có chữ và ký tự đặc biệt (chỉ số hoặc ĐANG CẬP NHẬT). DONE
- *  - Screen: chỉ nhập giá trị số KHÔNG có ký tự và ký tự đặc biệt. DONE
- *  - Back Camera: trong chuỗi phải có Số và MP (respectively). DONE
- *  - Front Camera: trong chuỗi phải có Số và MP (respectively). DONE
- *  - Img:  Phải nhập link đường dẫn trực tuyến. DONE
- *  - Desc: phải từ 2 - 50 ký tự. DONE
- *  - Type: phải từ  2 - 16 ký tự. DONE
+ *  - Name: phải từ 2 - 50 ký tự. 
+ *  - Giá: không được có chữ và ký tự đặc biệt (chỉ số hoặc ĐANG CẬP NHẬT). 
+ *  - Screen: chỉ nhập giá trị số KHÔNG có ký tự và ký tự đặc biệt. 
+ *  - Back Camera: trong chuỗi phải có Số và MP (respectively). 
+ *  - Front Camera: trong chuỗi phải có Số và MP (respectively). 
+ *  - Img:  Phải nhập link đường dẫn trực tuyến. 
+ *  - Desc: phải từ 2 - 50 ký tự. 
+ *  - Type: phải từ  2 - 16 ký tự. 
  * 
  * 
 */
