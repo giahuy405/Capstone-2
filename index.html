@@ -42,32 +42,43 @@
                     </li>
                 </ul>
             </div>
-              <a class="nav-link cart-icon" id="btnOpenCart" onclick="openCart()" href="#">
+            <a class="nav-link cart-icon" id="btnOpenCart" onclick="openCart()" href="#">
                 <i class="fa-solid fa-cart-shopping "></i></a>
-                          
+
         </nav>
     </header>
 
     <section class="storeBanner">
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-              <div class="carousel-item active">
-                <h2 class="text">Sản phẩm</h2>
-              </div>
+                <div class="carousel-item active">
+                    <h2 class="text">Sản phẩm</h2>
+                </div>
             </div>
-          </div>
+        </div>
     </section>
 
     <section class="menu mt-5  ">
         <div class="container">
             <div class="menu-search  d-lg-flex align-items-center">
-                <h5 class="mb-3 mb-lg-0">Categories</h5>
+                <h5 class="mb-3 mb-lg-0 ">Categories</h5>
                 <div class="  ml-auto d-lg-flex">
+                    <div style="width:300px" class="d-flex align-items-center">
+                        <div  style="width:150px">
+                            <input type="radio" id="upPrice" name="filterPrice" onclick="UpPrice()" >
+                            <label for="upPrice">Giá tăng dần</label>
+                        </div>
+                        <div style="width:150px">
+                            <input type="radio" id="downPrice" name="filterPrice" onclick="DownPrice()">
+                            <label for="downPrice">Giá giảm dần</label>
+                        </div>
+                    </div>
                     <select id="brandOption" onchange="selectType(event)" class="form-control mr-3 mb-2 hideFilter">
                         <option value="">Tất cả hãng</option>
-                        
+
                     </select>
-                    <input type="text" class="form-control hideFilter" onkeyup="searchProduct(event)" placeholder="Tìm sản phẩm">
+                    <input type="text" class="form-control hideFilter" onkeyup="searchProduct(event)"
+                        placeholder="Tìm sản phẩm">
                 </div>
             </div>
         </div>
@@ -95,9 +106,10 @@
             </tbody>
         </table>
         <section class="cart-bottom">
-            <span>Tổng tiền : </span><h5 class="d-inline" id="totalMoney">0</h5>
+            <span>Tổng tiền : </span>
+            <h5 class="d-inline" id="totalMoney">0</h5>
             <div class="form-inline mt-3">
-                <button class="btn btn-primary"  onclick="paidCart()" >Thanh toán</button>
+                <button class="btn btn-primary" onclick="paidCart()">Thanh toán</button>
                 <button id="deleteAllCart" class="btn btn-danger ml-2" onclick="clearCart()">Xóa hết giỏ hàng</button>
             </div>
         </section>
@@ -136,11 +148,11 @@
         </div>
         </div>
     </section>
-    <dialog   class="modal-dialog text-center">
+    <dialog class="modal-dialog text-center">
         <i class="fa-regular fa-circle-xmark  fa-2x text-danger"></i>
         <h6 class="text-danger mt-3  ">Bạn chưa thêm sản phẩm nào vào giỏ hàng</h6>
     </dialog>
-    
+
     <!-- backToTop -->
     <a class="backToTop cd-top text-replace js-cd-top" href="#"><i class="fa-solid fa-arrow-up"></i></a>
 

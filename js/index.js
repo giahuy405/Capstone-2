@@ -60,7 +60,7 @@ function paidCart() {
         renderCart();
     }
 }
-    
+
 
 function mapProductList(data) {
     var result = [];
@@ -128,19 +128,19 @@ function renderProductList(data) {
         </div>
         </div>`;
     }
-    
+
     document.getElementById("displayProductList").innerHTML = html;
 
 }
 
-function disabledCart(){
-  for(var i = 0; i < productList.length; i++){
-    var vaulePrice = document.getElementById(`price${i}`).innerHTML;
+function disabledCart() {
+    for (var i = 0; i < productList.length; i++) {
+        var vaulePrice = document.getElementById(`price${i}`).innerHTML;
 
-    if(vaulePrice === 'Đang cập nhật'){
-        document.getElementById(`btnCart${i}`).classList.add('d-none');
+        if (vaulePrice === 'Đang cập nhật') {
+            document.getElementById(`btnCart${i}`).classList.add('d-none');
+        }
     }
-  }
 }
 
 
@@ -338,6 +338,7 @@ function addToCart(id) {
             console.log(err)
         })
 }
+// Filter product
 function selectType(e) {
     var newProductList = [];
     if (e.target.value === "") {
@@ -360,6 +361,36 @@ function selectType(e) {
         }
     }
     return fetchProductList(newProductList);
+}
+function UpPrice() {
+    var temp = [];
+    for (var i = 0; i < productList.length; i++) {
+        for (var j = i + 1; j < productList.length; j++) {
+
+            if (+productList[i].price > +productList[j].price) {
+                temp = productList[i];
+                productList[i] = productList[j];
+                productList[j] = temp;
+            }
+        }
+    }
+    console.log('haha', typeof (productList[0].price))
+    return fetchProductList(productList);
+}
+function DownPrice() {
+    var temp = [];
+    for (var i = 0; i < productList.length; i++) {
+        for (var j = i + 1; j < productList.length; j++) {
+
+            if (+productList[i].price < +productList[j].price) {
+                temp = productList[i];
+                productList[i] = productList[j];
+                productList[j] = temp;
+            }
+        }
+    }
+    console.log('haha', typeof (productList[0].price))
+    return fetchProductList(productList);
 }
 function searchProduct(e) {
     var keyword = e.target.value.trim().toLowerCase();
