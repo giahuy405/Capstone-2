@@ -172,6 +172,7 @@ function getUpdateProduct(id) {
 
       return
     };
+    
     var id = document.getElementById("updIdProduct").value;
     var name = document.getElementById("updNameProduct").value;
     var price = document.getElementById("updPriceProduct").value;
@@ -184,7 +185,8 @@ function getUpdateProduct(id) {
   
     for (var i = 0; i < productList.length; i++) {
       var checkName = productList[i].name;
-      if (checkName === name) {
+      
+      if (checkName.toLowerCase() === name.toLowerCase()  && productList[i].id !== id) {
         Swal.fire({
           icon: 'error',
           title: 'Oops...',

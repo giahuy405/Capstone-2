@@ -35,7 +35,7 @@ function createProduct() {
 
   for (var i = 0; i < checkProductList.length; i++) {
     var checkName = checkProductList[i].name;
-    if (checkName === name) {
+    if (checkName.toLowerCase() === name.toLowerCase()) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
