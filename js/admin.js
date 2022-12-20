@@ -132,13 +132,21 @@ function deleteProduct(id) {
 // Get Product to update 
 function getUpdateProduct(id) {
     document.getElementById('errorName').style.display="none";
+    document.getElementById('updNameProduct').style.border = "1px solid grey";
     document.getElementById('errorPrice').style.display="none";
+    document.getElementById('updPriceProduct').style.border = "1px solid grey";
     document.getElementById('errorScreen').style.display="none";
+    document.getElementById('updScreenProduct').style.border = "1px solid grey";
     document.getElementById('errorBCam').style.display="none";
+    document.getElementById('updBackCamera').style.border = "1px solid grey";
     document.getElementById('errorFCam').style.display="none";
+    document.getElementById('updFrontCamera').style.border = "1px solid grey";
     document.getElementById('errorImg').style.display="none";
+    document.getElementById('updImgProduct').style.border = "1px solid grey";
     document.getElementById('errorDesc').style.display="none";
+    document.getElementById('updDescProduct').style.border = "1px solid grey";
     document.getElementById('errorType').style.display="none";
+    document.getElementById('updTypeProduct').style.border = "1px solid grey";
 
     productService
       .fetchProductDetail(id)
