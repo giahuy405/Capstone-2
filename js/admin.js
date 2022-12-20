@@ -182,6 +182,22 @@ function getUpdateProduct(id) {
     var desc = document.getElementById("updDescProduct").value;
     var type = document.getElementById("updTypeProduct").value;
   
+    for (var i = 0; i < checkProductList.length; i++) {
+      var checkName = checkProductList[i].name;
+      if (checkName === name) {
+        document.getElementById('errorName').innerHTML= "*Tên sản phẩm đã tồn tại";
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Tên sản phẩm này đã tồn tại',
+          
+        })
+        return;
+      }
+  
+    }
+  
+
     var product = new Product(
         id,
         name,
